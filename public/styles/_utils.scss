@@ -1,0 +1,95 @@
+
+:root {
+    font-size: 10px;
+    margin: 0; padding: 0;
+
+    --font: 'Lato', sans-serif;     // Font family for general use
+    --maxwidth: 1000px;             // Maximum width for container
+}
+
+.container {
+    max-width: 1000px;
+}
+
+
+@mixin bubble($size: 50px, $top: 0%, $left: 0%, $shadow: 0px 0px 15px #aaa) {
+    position: absolute;
+    border-radius: 50%;
+    width: $size; height: $size;
+    top: $top; left: $left;
+    box-shadow: $shadow;
+}
+
+
+// Fades from left
+@mixin fadeLeft {
+    transition: 1s ease;
+
+    &.hidden {
+        transform: translateX(-10%);
+        opacity: 0;
+    }
+}
+
+
+// Fades from right {
+@mixin fadeRight {
+    transition: 1s ease;
+
+    &.hidden {
+        transform: translateX(10%);
+        opacity: 0;
+    }
+}    
+
+
+// Hide element, but not display:none so it remains functional
+@mixin hide {
+    position: absolute; left: -999px; top: -999px;
+    opacity: 0; visibility: hidden;
+}
+
+
+// Set up flexbox in a mixin
+@mixin flex($direction: row, $justify-content: flex-start, $align-items: stretch) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify-content;
+    align-items: $align-items;
+}
+
+
+// Set up font in single mixin
+@mixin setFont($size: 1rem, $family: var(--font), $weight: normal, $align: left) {
+    font: $weight $size $family;
+    text-align: $align;
+}
+
+
+// Rounded icon button styling mixin
+@mixin rounded-icon-btn {
+    border: solid 4px white;
+    background-color: transparent;
+    border-radius: 50%;
+    color: white;
+    width: 50px; height: 50px;
+    font-size: 2rem;
+    text-align: center;
+    line-height: 40px;
+}
+
+
+// Display none on small screens
+@mixin lg-screen-only {
+    @media screen and (max-width: 768px) {
+        display: none;
+    }
+}
+
+// Display none on large screens
+@mixin sm-screen-only {
+    @media screen and (min-width: 768px) {
+        display: none;
+    }
+}
+

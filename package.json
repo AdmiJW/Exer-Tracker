@@ -1,0 +1,11 @@
+{
+  "name": "project-4-exercise-tracker",
+  "version": "1.0.0",
+  "description": "Freecodecamp Project - Exercise Tracker",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "AdmiJW",
+  "license": "MIT"
+}
