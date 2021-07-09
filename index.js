@@ -173,7 +173,7 @@ app.get('/api/users/:_id/logs', async (req,res)=> {
         dateFilter['$lte'] = ['$$session.date', to ];
     }
 
-    // We will also try to match documents by ID.
+    // We will also try to match documents by ID. If failed to parse, objID will remain as undefined
     let objID;
     try {
         objID = mongoose.Types.ObjectId(_id);
@@ -208,6 +208,9 @@ app.get('/api/users/:_id/logs', async (req,res)=> {
 
 
 
+
+
+//================================================================================================
 app.listen(process.env.PORT || 3000, ()=> {
     console.log(`Web application started at port ${process.env.PORT || 3000}`);
 });
