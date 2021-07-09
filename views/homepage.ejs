@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <%- include("_head.ejs") %>
+
+    <!-- Script -->
+    <script defer src='/public/script/homepage.js'></script>
+</head>
+
+<body>
+    <!-- Navbar -->
+    <%- include("_nav.ejs") %>
+
+    <!-- Jumbotron -->
+    <div class="jumbotron-fluid">
+        <video playsinline autoplay muted loop src='/public/img/running.mp4'></video>
+
+        <div class="jumbotron-desc">
+            <h1 class="jumbotron-title">EXER TRACK</h1>
+            <p class="jumbotron-text">Track your exercise record with ease, without login</p>
+        </div>
+        <button class="jumbotron-btn">Get moving</button>
+    </div>
+
+
+    <!-- Main Content -->
+    <main>
+        <section>
+            <h2 class="feature__title">Features</h2>
+            
+            <div class="feature__container container">
+                <img src="/public/img/using_phone.jpg" alt="Using smartphone" class="feature__img" id="featureImg1">
+                <div class="divider" id='divider1'></div>
+                <div class="feature__text" id='featureText1'>
+                    <h4 class="feature__text__title">Easy to Use 🤗</h4>
+                    <p class="feature__text__desc">Simplistic, Responsive design based website. Intuitive navigation to ease your usage</p>
+                </div>
+
+                <div class="feature__text" id='featureText2'>
+                    <h4 class="feature__text__title">Visualize your History 📈</h4>
+                    <p class="feature__text__desc">Visualize your exercise records. Make your plans accordingly</p>
+                </div>
+                <div class="divider" id='divider2'></div>
+                <img src="/public/img/data_analysis.jpg" alt="Data analysis" class="feature__img" id="featureImg2">
+                
+
+                <img src="/public/img/exercise.jpg" alt="Girl exercising" class="feature__img" id="featureImg3">
+                <div class="divider" id='divider3'></div>
+                <div class="feature__text" id='featureText3'>
+                    <h4 class="feature__text__title">Start Immediately 🏃</h4>
+                    <p class="feature__text__desc">No passwords required. Use your username/ID to log in</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <%- include("_footer.ejs") %>
+</body>
+
+</html>
