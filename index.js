@@ -145,7 +145,7 @@ app.post('/api/users/:_id/exercises', async (req, res)=> {
         username: respond.username,
         description,
         duration,
-        date
+        date: date.toISOString().substr(0, 10)
     });
 });
 
