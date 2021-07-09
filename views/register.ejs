@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <%- include('_head.ejs') %>
+
+    <!-- Style -->
+    <link rel='stylesheet' type='text/css' href='/public/styles/register.css'/>
+
+    <!-- Script -->
+    <script type='module' src='/public/script/register.js'></script>
+</head>
+<body>
+    <!-- Balloon -->
+    <%- include("_balloon.ejs") %>
+
+    <!-- Navigation -->
+    <%- include('_nav.ejs') %>
+
+    <!-- Content -->
+    <div class='content'>
+        <!-- Registration form -->
+        <form class='form' id='registration-form'>
+            <h1 class='form__title'>🏋️‍♀️ Register 🏋</h1>
+
+            <input class='form__input' type='text' name='username' id='username' placeholder='Username'/>
+            <p class='form__input--muted'>(Yes, you only need a username)</p>
+
+            <div class='form__membercard' id='form__membercard'>
+                <img class='form__membercard__img' src='/public/img/user.svg' alt='anonymous profile picture'/>
+                <div class='form__membercard__info'>
+                    <p id='form__membercard__username'>Username: <strong id='form__membercard__username__value'></strong></p>
+                    <p id='form__membercard__id'>ID: <strong id='form__membercard__id__value'></strong></p>
+                    <p id='form__membercard__id'>Status: <strong class='text-danger'></strong></p>
+                </div>
+            </div>
+
+            <button type='submit' class='form__submit btn btn-primary'>Register</button>
+            <p class='form__already'>Already have a account?
+                <a class='form__already__link' href='/login'>Login</a>
+            </p>
+        </form>
+
+        <!-- Background pic attribute -->
+        <a id='background-attribute' href='https://www.freepik.com/vectors/people' target='_blank' rel='noreferrer noopener'>People vector created by pch.vector - www.freepik.com</a>
+    </div>
+    
+    <!-- Footer -->
+    <%- include('_footer.ejs') %>
+</body>
+</html>

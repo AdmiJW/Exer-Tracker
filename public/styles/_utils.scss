@@ -12,15 +12,6 @@
 }
 
 
-@mixin bubble($size: 50px, $top: 0%, $left: 0%, $shadow: 0px 0px 15px #aaa) {
-    position: absolute;
-    border-radius: 50%;
-    width: $size; height: $size;
-    top: $top; left: $left;
-    box-shadow: $shadow;
-}
-
-
 // Fades from left
 @mixin fadeLeft {
     transition: 1s ease;

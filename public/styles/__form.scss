@@ -1,0 +1,53 @@
+// Registration form
+.form {
+    @include flex(column);
+    height: unquote('max( calc( 100vh - var(--nav-height) - 20vh), 460px)');    // Minimum height is 400px. Can be larger until fill screen in center
+    max-width: 500px;
+    margin-left: auto; margin-right: auto;
+
+    background: rgba( 255, 255, 255, 0.95 );
+    box-shadow: 0 0 32px 0 rgba( 0, 0, 0, 0.37 );
+    border-radius: 20px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+
+    // On small screens, override the margin to fixed value
+    @media screen and (max-width: 540px) {
+        margin-left: 20px; margin-right: 20px;
+    }
+
+    // Title
+    &__title {
+        margin: .35em 0;
+        @include setFont(4rem, var(--font), bold, center);
+    }
+
+    // Input field
+    &__input {
+        margin: 3rem 3rem 0 3rem;
+        padding: .5em;
+        @include setFont(2rem, var(--font));
+        border: solid 2px #e9e9e9;
+        background-color: #f3f3f3;
+    }
+
+    // Muted text that follows an input field
+    &__input--muted {
+        margin: 0 3rem 3rem 3rem;
+        @include setFont(1.5rem, var(--font), 300, right);
+        color: #808080;
+    }
+    
+    // Submit button
+    &__submit {
+        margin: .75em 0 .25em 0;
+        padding: .25em 1.5em;
+        align-self: center;
+        border-radius: .25em;
+        @include setFont(2.6rem, var(--font));
+    }
+
+    // Already registered / havent register prompt
+    &__already {
+        @include setFont(1.5rem, var(--font), normal, center);
+    }
+}

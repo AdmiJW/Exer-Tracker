@@ -1,0 +1,16 @@
+// SCSS styling for the alert balloon.
+#alert-balloon {
+    position: fixed;
+
+    top: calc( var(--nav-height) + 15px );
+    left: 50%;
+    transform: translate(-50%, -50vh);
+    @include setFont(1.5rem);
+    z-index: 9999;
+
+    transition: all .5s ease;
+}
+
+#alert-balloon.show {
+    transform: translate(-50%, 0);
+}

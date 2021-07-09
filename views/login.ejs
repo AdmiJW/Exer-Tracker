@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <%- include('_head.ejs') %>
+
+    <!-- Style -->
+    <link rel='stylesheet' type='text/css' href='/public/styles/login.css'/>
+
+    <!-- Script -->
+    <script type='module' src='/public/script/login.js'></script>
+</head>
+<body>
+    <!-- Balloon -->
+    <%- include("_balloon.ejs") %>
+
+    <!-- Navigation -->
+    <%- include('_nav.ejs') %>
+
+    <!-- Content -->
+    <div class='content'>
+        <!-- Registration form -->
+        <form class='form' id='login-form'>
+            <h1 class='form__title'>🏌️‍♀️ Login 🏌️‍♂️</h1>
+
+            <input class='form__input' type='text' name='login-credential' id='login-credential' placeholder='Username/ID'/>
+            <p class='form__input--muted'>You didn't forget do you?</p>
+
+            <button type='submit' class='form__submit btn btn-primary'>Login</button>
+            <p class='form__already'>Not yet registered?
+                <a class='form__already__link' href='/register'>Register</a>
+            </p>
+        </form>
+
+        <!-- Background pic attribute -->
+        <a id='background-attribute' href='https://www.freepik.com/vectors/people' target='_blank' rel='noreferrer noopener'>People vector created by pch.vector - www.freepik.com</a>
+    </div>
+    
+    <!-- Footer -->
+    <%- include('_footer.ejs') %>
+</body>
+</html>

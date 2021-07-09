@@ -1,0 +1,49 @@
+
+@import "nav_footer";
+@import "balloon";
+@import "_form";
+
+body {
+    background: url('/public/img/gym.svg') no-repeat fixed center;
+    background-size: cover;
+}
+
+//==========================================================================
+
+.content {
+    position: relative;
+    min-height: 100vh;
+
+    padding-top: calc( var(--nav-height) + 10vh);
+    padding-bottom: 10vh;
+}
+
+
+// Fake membership card
+#form__membercard {
+    flex: 1;
+    max-height: 135px;
+    @include flex(row, flex-start, center);
+    margin: 0 2.5em;
+    padding: 1.5em;
+
+    border-radius: 1em;
+    background-color: #dfebfa;
+}
+
+.form__membercard__img {
+    width: 25%; height: auto;
+    margin-right: 2.5em;
+}
+
+.form__membercard__info {
+    @include setFont(1.75rem);
+}
+
+
+// Background-attribute
+#background-attribute {
+    @include setFont(1rem);
+    position: absolute;
+    left: 0px; bottom: 0px;
+}

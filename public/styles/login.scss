@@ -1,0 +1,26 @@
+
+@import "nav_footer";
+@import "balloon";
+@import "_form";
+
+body {
+    background: url('/public/img/gym.svg') no-repeat fixed center;
+    background-size: cover;
+}
+
+//==========================================================================
+
+.content {
+    position: relative;
+    min-height: 100vh;
+
+    padding-top: calc( var(--nav-height) + 10vh);
+    padding-bottom: 10vh;
+}
+
+// Background-attribute
+#background-attribute {
+    @include setFont(1rem);
+    position: absolute;
+    left: 0px; bottom: 0px;
+}
