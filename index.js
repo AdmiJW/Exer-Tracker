@@ -140,7 +140,13 @@ app.post('/api/users/:_id/exercises', async (req, res)=> {
     if (!respond)
         return res.json({error: `No user having id/username of ${_id} found!`});
 
-    res.json(respond);
+    res.json({
+        _id: respond._id,
+        username: respond.username,
+        description,
+        duration,
+        date
+    });
 });
 
 
