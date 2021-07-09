@@ -157,20 +157,20 @@ app.get('/api/users/:_id/logs', async (req,res)=> {
     } 
 
     //  Build up the query parameters
-    const dateFilter = {};
+    const dateFilter = { $and: [] };
     //  Check the 'from' query
     if (req.query.from) {
         const from = new Date(req.query.from);
         if (from.toString() === 'Invalid Date')
             return res.status(400).json({error: `Invalid query parameter "from=${req.query.from}".`});
-        dateFilter['$gte'] = ['$$session.date', from ];
+        dateFilter['$and'].push( {'$gte': ['$$session.date', from ] } );
     }
     //  Check the 'to' query
     if (req.query.to) {
         const to = new Date(req.query.to);
         if (to.toString() === 'Invalid Date')
             return res.status(400).json({error: `Invalid query parameter "to=${req.query.to}".`});
-        dateFilter['$lte'] = ['$$session.date', to ];
+        dateFilter['$and'].push( {'$lte': ['$$session.date', to ] } );
     }
 
     // We will also try to match documents by ID. If failed to parse, objID will remain as undefined
@@ -187,7 +187,7 @@ app.get('/api/users/:_id/logs', async (req,res)=> {
                 $filter: {
                     input: "$log",
                     as: "session",
-                    cond: (Object.keys(dateFilter).length)? dateFilter: true        //If dateFilter is not empty object, use as filter condition. Otherwise, we want all logs
+                    cond: dateFilter['$and'].length? dateFilter: true    //If dateFilter is not empty object (contains lte or gte), use as filter condition. Otherwise, we want all logs
                 }
             }
         } },
