@@ -103,7 +103,7 @@
         @include lg-screen-only;
         @include flex;
 
-        a {
+        a, p {
             margin: 0 20px;
             @include setFont(2rem, var(--font), normal);
             color: white;
@@ -173,7 +173,7 @@ nav.bg-visible {
         margin: calc(var(--nav-height) + 20px) 0;
     }
 
-    a {
+    a, p {
         @include setFont($size: 2.5rem, $family: var(--font), $weight: 300);
         position: relative;
 

@@ -135,7 +135,7 @@
   }
 }
 
-.navbar .nav-lg-screen a {
+.navbar .nav-lg-screen a, .navbar .nav-lg-screen p {
   margin: 0 20px;
   font: normal 2rem var(--font);
   text-align: left;
@@ -146,7 +146,7 @@
   transition: .5s ease;
 }
 
-.navbar .nav-lg-screen a::after {
+.navbar .nav-lg-screen a::after, .navbar .nav-lg-screen p::after {
   content: '';
   position: absolute;
   top: 100%;
@@ -162,7 +162,7 @@
   transition: transform .5s ease, -webkit-transform .5s ease;
 }
 
-.navbar .nav-lg-screen a:is(:focus, :hover):after {
+.navbar .nav-lg-screen a:is(:focus, :hover):after, .navbar .nav-lg-screen p:is(:focus, :hover):after {
   -webkit-transform: scaleX(1.2);
           transform: scaleX(1.2);
 }
@@ -213,7 +213,7 @@ nav.bg-visible .nav-lg-screen a {
   margin: calc(var(--nav-height) + 20px) 0;
 }
 
-.nav-sm-screen a {
+.nav-sm-screen a, .nav-sm-screen p {
   font: 300 2.5rem var(--font);
   text-align: left;
   position: relative;
@@ -224,7 +224,7 @@ nav.bg-visible .nav-lg-screen a {
   transition: all .5s ease;
 }
 
-.nav-sm-screen a::before, .nav-sm-screen a::after {
+.nav-sm-screen a::before, .nav-sm-screen a::after, .nav-sm-screen p::before, .nav-sm-screen p::after {
   content: '';
   position: absolute;
   z-index: -1;
@@ -243,12 +243,12 @@ nav.bg-visible .nav-lg-screen a {
           transform-origin: left;
 }
 
-.nav-sm-screen a::after {
+.nav-sm-screen a::after, .nav-sm-screen p::after {
   -webkit-transition-delay: .15s;
           transition-delay: .15s;
 }
 
-.nav-sm-screen a:is(:hover, :focus)::before, .nav-sm-screen a:is(:hover, :focus)::after {
+.nav-sm-screen a:is(:hover, :focus)::before, .nav-sm-screen a:is(:hover, :focus)::after, .nav-sm-screen p:is(:hover, :focus)::before, .nav-sm-screen p:is(:hover, :focus)::after {
   -webkit-transform: scaleX(1);
           transform: scaleX(1);
 }
@@ -439,6 +439,7 @@ footer .copyright {
   left: 50%;
   -webkit-transform: translate(-50%, -50vh);
           transform: translate(-50%, -50vh);
+  border-radius: 1em;
   font: normal 1.5rem var(--font);
   text-align: left;
   z-index: 9999;
@@ -465,7 +466,7 @@ footer .copyright {
   -webkit-box-align: stretch;
       -ms-flex-align: stretch;
           align-items: stretch;
-  height: max( calc( 100vh - var(--nav-height) - 20vh), 460px);
+  height: max( calc( 100vh - var(--nav-height) - 15vh), 460px);
   max-width: 500px;
   margin-left: auto;
   margin-right: auto;
@@ -529,15 +530,15 @@ body {
 .content {
   position: relative;
   min-height: 100vh;
-  padding-top: calc( var(--nav-height) + 10vh);
-  padding-bottom: 10vh;
+  padding-top: calc( var(--nav-height) + 7.5vh);
+  padding-bottom: 7.5vh;
 }
 
 #form__membercard {
   -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-  max-height: 135px;
+      -ms-flex: 1 100px;
+          flex: 1 100px;
+  max-height: 150px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -551,8 +552,10 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  margin: 0 2.5em;
+  margin: .5em 2.5em;
   padding: 1.5em;
+  -webkit-box-shadow: 0px 15px 10px -10px rgba(0, 0, 0, 0.199);
+          box-shadow: 0px 15px 10px -10px rgba(0, 0, 0, 0.199);
   border-radius: 1em;
   background-color: #dfebfa;
 }

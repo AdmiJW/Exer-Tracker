@@ -22,15 +22,15 @@
         <form class='form' id='registration-form'>
             <h1 class='form__title'>🏋️‍♀️ Register 🏋</h1>
 
-            <input class='form__input' type='text' name='username' id='username' placeholder='Username'/>
+            <input class='form__input' type='text' name='username' id='username' placeholder='Username' aria-label='Username'/>
             <p class='form__input--muted'>(Yes, you only need a username)</p>
 
             <div class='form__membercard' id='form__membercard'>
                 <img class='form__membercard__img' src='/public/img/user.svg' alt='anonymous profile picture'/>
                 <div class='form__membercard__info'>
                     <p id='form__membercard__username'>Username: <strong id='form__membercard__username__value'></strong></p>
-                    <p id='form__membercard__id'>ID: <strong id='form__membercard__id__value'></strong></p>
-                    <p id='form__membercard__id'>Status: <strong class='text-danger'></strong></p>
+                    <p id='form__membercard__id'>ID: <strong class='text-break' id='form__membercard__id__value'></strong></p>
+                    <p id='form__membercard__status'>Status: <strong id='form__membercard__status__value'></strong></p>
                 </div>
             </div>
 

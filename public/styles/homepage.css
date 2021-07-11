@@ -135,7 +135,7 @@
   }
 }
 
-.navbar .nav-lg-screen a {
+.navbar .nav-lg-screen a, .navbar .nav-lg-screen p {
   margin: 0 20px;
   font: normal 2rem var(--font);
   text-align: left;
@@ -146,7 +146,7 @@
   transition: .5s ease;
 }
 
-.navbar .nav-lg-screen a::after {
+.navbar .nav-lg-screen a::after, .navbar .nav-lg-screen p::after {
   content: '';
   position: absolute;
   top: 100%;
@@ -162,7 +162,7 @@
   transition: transform .5s ease, -webkit-transform .5s ease;
 }
 
-.navbar .nav-lg-screen a:is(:focus, :hover):after {
+.navbar .nav-lg-screen a:is(:focus, :hover):after, .navbar .nav-lg-screen p:is(:focus, :hover):after {
   -webkit-transform: scaleX(1.2);
           transform: scaleX(1.2);
 }
@@ -213,7 +213,7 @@ nav.bg-visible .nav-lg-screen a {
   margin: calc(var(--nav-height) + 20px) 0;
 }
 
-.nav-sm-screen a {
+.nav-sm-screen a, .nav-sm-screen p {
   font: 300 2.5rem var(--font);
   text-align: left;
   position: relative;
@@ -224,7 +224,7 @@ nav.bg-visible .nav-lg-screen a {
   transition: all .5s ease;
 }
 
-.nav-sm-screen a::before, .nav-sm-screen a::after {
+.nav-sm-screen a::before, .nav-sm-screen a::after, .nav-sm-screen p::before, .nav-sm-screen p::after {
   content: '';
   position: absolute;
   z-index: -1;
@@ -243,12 +243,12 @@ nav.bg-visible .nav-lg-screen a {
           transform-origin: left;
 }
 
-.nav-sm-screen a::after {
+.nav-sm-screen a::after, .nav-sm-screen p::after {
   -webkit-transition-delay: .15s;
           transition-delay: .15s;
 }
 
-.nav-sm-screen a:is(:hover, :focus)::before, .nav-sm-screen a:is(:hover, :focus)::after {
+.nav-sm-screen a:is(:hover, :focus)::before, .nav-sm-screen a:is(:hover, :focus)::after, .nav-sm-screen p:is(:hover, :focus)::before, .nav-sm-screen p:is(:hover, :focus)::after {
   -webkit-transform: scaleX(1);
           transform: scaleX(1);
 }
@@ -508,6 +508,7 @@ body {
 .jumbotron-fluid .jumbotron-btn {
   font: normal 2rem var(--font);
   text-align: left;
+  text-decoration: none;
   position: relative;
   z-index: 1;
   margin: 10px 0;

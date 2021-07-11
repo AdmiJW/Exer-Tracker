@@ -12,21 +12,27 @@
         
         <!-- Navbar displayed on large screen only -->
         <ul class="navbar-nav nav-lg-screen">
-            <li class="nav-item">
-                <a href="/register" class="nav-link">Register</a>
-            </li>
-            <li class="nav-item">
-                <a href="/login" class="nav-link">Login</a>
-            </li>
-            <li class="nav-item">
-                <a href="#" class="nav-link">Exercise!</a>
-            </li>
-            <li class="nav-item">
-                <a href="#" class="nav-link">History</a>
-            </li>
-            <li class="nav-item">
-                <a href="#" class="nav-link">Logout</a>
-            </li>
+            <% if (isLoggedIn) { %>
+                <li class="nav-item">
+                    <p class='nav-link'>Hi, <%= username %></p>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Exercise!</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">History</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/api/logout" class="nav-link">Logout</a>
+                </li>
+            <% } else { %>
+                <li class="nav-item">
+                    <a href="/register" class="nav-link">Register</a>
+                </li>
+                <li class="nav-item">
+                    <a href="/login" class="nav-link">Login</a>
+                </li>
+            <% } %>
         </ul>
     </div>
 </nav>
@@ -36,21 +42,27 @@
     <h4 class="display-4">Menu</h4>
 
     <ul class="navbar-nav">
-        <li class="nav-item">
-            <a href="/register" class="nav-link">Register</a>
-        </li>
-        <li class="nav-item">
-            <a href="/login" class="nav-link">Login</a>
-        </li>
-        <li class="nav-item">
-            <a href="#" class="nav-link">Exercise!</a>
-        </li>
-        <li class="nav-item">
-            <a href="#" class="nav-link">History</a>
-        </li>
-        <li class="nav-item">
-            <a href="#" class="nav-link">Logout</a>
-        </li>
+        <% if (isLoggedIn) { %>
+            <li class="nav-item">
+                <p>Hello, <%= username %></p>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">Exercise!</a>
+            </li>
+            <li class="nav-item">
+                <a href="#" class="nav-link">History</a>
+            </li>
+            <li class="nav-item">
+                <a href="/api/logout" class="nav-link">Logout</a>
+            </li>
+        <% } else { %>
+            <li class="nav-item">
+                <a href="/register" class="nav-link">Register</a>
+            </li>
+            <li class="nav-item">
+                <a href="/login" class="nav-link">Login</a>
+            </li>
+        <% } %>
     </ul>
 </nav>
 

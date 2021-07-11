@@ -14,19 +14,20 @@ body {
     position: relative;
     min-height: 100vh;
 
-    padding-top: calc( var(--nav-height) + 10vh);
-    padding-bottom: 10vh;
+    padding-top: calc( var(--nav-height) + 7.5vh);
+    padding-bottom: 7.5vh;
 }
 
 
 // Fake membership card
 #form__membercard {
-    flex: 1;
-    max-height: 135px;
+    flex: 1 100px;
+    max-height: 150px;
     @include flex(row, flex-start, center);
-    margin: 0 2.5em;
+    margin: .5em 2.5em;
     padding: 1.5em;
-
+    
+    box-shadow: 0px 15px 10px -10px rgba(0, 0, 0, 0.199);
     border-radius: 1em;
     background-color: #dfebfa;
 }

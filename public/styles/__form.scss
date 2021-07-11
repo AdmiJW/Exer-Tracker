@@ -1,7 +1,7 @@
 // Registration form
 .form {
     @include flex(column);
-    height: unquote('max( calc( 100vh - var(--nav-height) - 20vh), 460px)');    // Minimum height is 400px. Can be larger until fill screen in center
+    height: unquote('max( calc( 100vh - var(--nav-height) - 15vh), 460px)');    // Minimum height is 400px. Can be larger until fill screen in center
     max-width: 500px;
     margin-left: auto; margin-right: auto;
 

@@ -49,6 +49,7 @@ body {
 
     .jumbotron-btn {
         @include setFont($size: 2rem, $family: var(--font), $weight: normal);
+        text-decoration: none;
 
         position: relative;
         z-index: 1;

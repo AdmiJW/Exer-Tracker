@@ -33,7 +33,7 @@ async function showBalloon(message, type) {
     balloonTimeout = setTimeout(() => {
         balloon.classList.remove('show');
         balloonTimeout = null;
-    }, 5000);       
+    }, 10000);       
 }
 
 

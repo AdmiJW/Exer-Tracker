@@ -5,6 +5,7 @@
     top: calc( var(--nav-height) + 15px );
     left: 50%;
     transform: translate(-50%, -50vh);
+    border-radius: 1em;
     @include setFont(1.5rem);
     z-index: 9999;
 
