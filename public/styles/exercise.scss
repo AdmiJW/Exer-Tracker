@@ -1,0 +1,98 @@
+
+@import "nav_footer";
+@import "balloon";
+@import "_form";
+
+body {
+    background: url('/public/img/gym.svg') no-repeat fixed center;
+    background-size: cover;
+}
+
+//==========================================================================
+
+.content {
+    position: relative;
+    min-height: 100vh;
+
+    padding-top: calc( var(--nav-height) + 7.5vh);
+    padding-bottom: 7.5vh;
+}
+
+// Make the form to not strictly fixed on screen size as in _form.scss partial
+.form {
+    height: initial !important;
+    max-width: 750px !important;
+
+    @media screen and (max-width: 800px) {
+        margin-left: 20px; margin-right: 20px;
+    }
+}
+
+
+.form-group {
+    position: relative;
+    @include flex(column, flex-start, stretch);
+    margin: 2em;
+    padding: 1em;
+    
+    border-radius: 1em;
+    background-color: darken(rgba(255,255,255,.2), 15%);
+    box-shadow: inset 0 5px 0 darken(#fff, 10%);
+
+}
+
+
+.form__subtitle { @include setFont(3rem, var(--font), bold, center); }
+
+.form__description { @include setFont(2rem, var(--font), 300, center); }
+
+.form__select__pics {
+    @include flex(row, center, stretch);
+    flex-wrap: wrap;
+
+    input[type='radio'] {
+        visibility: hidden;
+        position: absolute;
+        left: 0; top: 0;
+    }
+
+    #exercise-radio-aerobic:checked ~ label[for='exercise-radio-aerobic'],
+    #exercise-radio-anaerobic:checked ~ label[for='exercise-radio-anaerobic'] {
+        filter: none;
+        border: solid 2px orange;
+    }
+
+    label {
+        margin: 1em; padding: 1em;
+        width: unquote('clamp(200px, 40%, 40%)');
+        background-color: #fff;
+        border-radius: 1em;
+
+        cursor: pointer;
+        filter:grayscale(1);
+        transition: filter .5s ease;
+    }
+    img { width: 100%; height: auto; }
+    p { @include setFont(2.5rem, var(--font), normal, center); }
+}
+
+
+.form-group__label {  @include setFont(2rem); }
+
+.form__input {
+    margin: .5em 0 2.5em 0;
+    background-color: #fff;
+}
+
+#exercise-description {
+    @include setFont(1.75rem);
+    padding: .5em;
+    min-height: 100px;
+}
+
+// Background-attribute
+#background-attribute {
+    @include setFont(1rem);
+    position: absolute;
+    left: 0px; bottom: 0px;
+}

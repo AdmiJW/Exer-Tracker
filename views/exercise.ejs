@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <%- include('_head.ejs') %>
+
+    <!-- Style -->
+    <link rel='stylesheet' type='text/css' href='/public/styles/exercise.css'/>
+
+    <!-- Script -->
+    <script type='module' src='/public/script/exercise.js'></script>
+</head>
+<body>
+    <!-- Balloon -->
+    <%- include("_balloon.ejs") %>
+
+    <!-- Navigation -->
+    <%- include('_nav.ejs') %>
+
+    <!-- Content -->
+    <div class='content'>
+        <!-- Exercise form -->
+        <form class='form' id='exercise-form'>
+            <h1 class='form__title'><small>Great to see you here 👋</small><br> <%= username %></h1>
+
+            <section class='form-group'>
+                <h4 class='form__subtitle'>Step 1</h4>
+                <p class='form__description'>Select your exercise type</p>
+
+                <div class='form__select__pics'>
+                    <input type='radio' name='exercise-type' value='aerobic' id='exercise-radio-aerobic' required/>
+                    <input type='radio' name='exercise-type' value='anaerobic' id='exercise-radio-anaerobic' required/>
+                    <label for='exercise-radio-aerobic'>
+                        <img src='/public/img/aerobic.svg' alt='aerobic exercise'/>
+                        <p class='lead'>Aerobic</p>
+                    </label>
+                    <label for='exercise-radio-anaerobic'>
+                        <img src='/public/img/anaerobic.svg' alt='anaerobic exercise'/><br>
+                        <p class='lead'>Anaerobic</p>
+                    </label>
+                </div>
+            </section>
+            
+            <section class='form-group'>
+                <h4 class='form__subtitle'>Step 2</h4>
+                <p class='form__description'>Fill in the description</p>
+
+                <label class='form-group__label' for='exercise-duration'>Duration (minute): </label>
+                <input class='form__input' type='number' min='1' step='1' value='30' name='exercise-duration' id='exercise-duration' required/>
+
+                <label class='form-group__label' for='exercise-date'>Date: </label>
+                <input class='form__input' type='date' name='exercise-date' id='exercise-date'/>
+
+                <label class='form-group__label' for='exercise-description'>Description: </label>
+                <textarea name='exercise-description' id='exercise-description' placeholder='Enter description'>Cycling 🚴🏻‍♀️</textarea>
+            </section>
+
+            <button type='submit' class='form__submit btn btn-primary'>Record!</button>
+        </form>
+
+        <!-- Background pic attribute -->
+        <a id='background-attribute' href='https://www.freepik.com/vectors/people' target='_blank' rel='noreferrer noopener'>People vector created by pch.vector - www.freepik.com</a>
+    </div>
+    
+    <!-- Footer -->
+    <%- include('_footer.ejs') %>
+</body>
+</html>

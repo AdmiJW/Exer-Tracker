@@ -2,6 +2,7 @@
 :root {
     font-size: 10px;
     margin: 0; padding: 0;
+    box-sizing: border-box;
 
     --font: 'Lato', sans-serif;     // Font family for general use
     --maxwidth: 1000px;             // Maximum width for container

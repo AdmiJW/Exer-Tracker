@@ -5,7 +5,7 @@ const recordSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    duration: Number,                       // Seconds
+    duration: Number,                       // Minutes
     date: {
         type: Date,
         default: Date.now

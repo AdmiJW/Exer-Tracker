@@ -109,6 +109,13 @@ app.get('/login', limiter, (req,res)=> {
     res.status(200).render('login', {isLoggedIn: false});
 });
 
+app.get('/exercise', limiter, (req,res)=> {
+    if (!req.session.isLoggedIn)
+        return res.status(401).redirect('/login', {isLoggedIn: false});
+    
+    res.status(200).render('exercise', {isLoggedIn: true, username: req.session.username});
+})
+
 
 //=================================
 // API
