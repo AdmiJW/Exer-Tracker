@@ -143,8 +143,7 @@ router.post('/users/:_id/exercises', async (req, res)=> {
         username: respond.username,
         date: date.toDateString(),
         duration: Number(duration),
-        description,
-        type
+        description
     });
 });
 
