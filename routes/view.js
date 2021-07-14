@@ -31,14 +31,14 @@ router.get('/login', (req,res)=> {
 
 router.get('/exercise', (req,res)=> {
     if (!req.session.isLoggedIn)
-        return res.status(401).redirect('/login', {isLoggedIn: false});
+        return res.status(401).redirect('/login');
     
     res.status(200).render('exercise', {isLoggedIn: true, username: req.session.username});
 });
 
 router.get('/history', (req,res)=> {
     if (!req.session.isLoggedIn)
-        return res.status(401).redirect('/login', {isLoggedIn: false});
+        return res.status(401).redirect('/login');
 
     res.status(200).render('history', {isLoggedIn: true, username: req.session.username});
 });
