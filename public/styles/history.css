@@ -454,7 +454,16 @@ footer .copyright {
           transform: translate(-50%, 0);
 }
 
-.form {
+body {
+  background: url("/public/img/gym.svg") no-repeat fixed center;
+  background-size: cover;
+  --aerobic-color: #ffa060;
+  --aerobic-color-darker: #d17b42;
+  --anaerobic-color: #aec3ff;
+  --anaerobic-color-darker: #7790d6;
+}
+
+.content {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -465,91 +474,88 @@ footer .copyright {
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
-  -webkit-box-align: stretch;
-      -ms-flex-align: stretch;
-          align-items: stretch;
-  height: max( calc( 100vh - var(--nav-height) - 15vh), 460px);
-  max-width: 500px;
-  margin-left: auto;
-  margin-right: auto;
-  background: rgba(255, 255, 255, 0.95);
-  -webkit-box-shadow: 0 0 32px 0 rgba(0, 0, 0, 0.37);
-          box-shadow: 0 0 32px 0 rgba(0, 0, 0, 0.37);
-  border-radius: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-}
-
-@media screen and (max-width: 540px) {
-  .form {
-    margin-left: 20px;
-    margin-right: 20px;
-  }
-}
-
-.form__title {
-  margin: .35em 0;
-  font: bold 4rem var(--font);
-  text-align: center;
-}
-
-.form__input {
-  margin: 3rem 3rem 0 3rem;
-  padding: .5em;
-  font: normal 2rem var(--font);
-  text-align: left;
-  border: solid 2px #e9e9e9;
-  background-color: #f3f3f3;
-}
-
-.form__input--muted {
-  margin: 0 3rem 3rem 3rem;
-  font: 300 1.5rem var(--font);
-  text-align: right;
-  color: #808080;
-}
-
-.form__submit {
-  margin: .75em 0 .25em 0;
-  padding: .25em 1.5em;
-  -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
-  border-radius: .25em;
-  font: normal 2.6rem var(--font);
-  text-align: left;
-}
-
-.form__already {
-  font: normal 1.5rem var(--font);
-  text-align: center;
-}
-
-body {
-  background: url("/public/img/gym.svg") no-repeat fixed center;
-  background-size: cover;
-}
-
-.content {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 50px;
+  margin: 0 20px;
   position: relative;
   min-height: 100vh;
   padding-top: calc( var(--nav-height) + 7.5vh);
   padding-bottom: 7.5vh;
 }
 
-.form {
-  height: initial !important;
-  max-width: 750px !important;
+.loading {
+  position: fixed;
+  display: none;
+  min-width: 200px;
+  background-color: #cccccc;
+  padding: 2em;
+  border-radius: 2em;
+  text-align: center;
+  -webkit-box-shadow: 0 5px 20px #404040;
+          box-shadow: 0 5px 20px #404040;
 }
 
-@media screen and (max-width: 800px) {
-  .form {
-    margin-left: 20px;
-    margin-right: 20px;
-  }
+.loading img {
+  width: 200px;
+  height: auto;
 }
 
-.form-group {
-  position: relative;
+.loading p {
+  font: bold 2.5rem var(--font);
+  text-align: center;
+}
+
+.loading.active {
+  display: initial;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  z-index: 999;
+}
+
+.section {
+  width: min(100%, 800px);
+  border-radius: 1em;
+  background: rgba(255, 255, 255, 0.85);
+  -webkit-box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+          box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  padding: 2em;
+}
+
+.section__title {
+  font: bold 3rem var(--font);
+  text-align: center;
+  margin: 0 0 1em 0;
+}
+
+#graph {
+  width: min(100%, 1000px);
+}
+
+#graph svg {
+  max-width: 100%;
+}
+
+.record__container {
+  border-radius: 1em;
+  background-color: #ededed;
+  -webkit-box-shadow: inset 0 5px 0 #d4d4d4;
+          box-shadow: inset 0 5px 0 #d4d4d4;
+}
+
+#record__summary {
+  margin: 1.5em auto;
+  padding: 1em;
+  font: bold 2rem var(--font);
+  text-align: left;
+  max-width: 650px;
+}
+
+#record__div {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -560,28 +566,27 @@ body {
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
-  -webkit-box-align: stretch;
-      -ms-flex-align: stretch;
-          align-items: stretch;
-  margin: 2em;
-  padding: 1em;
-  border-radius: 1em;
-  background-color: rgba(217, 217, 217, 0.2);
-  -webkit-box-shadow: inset 0 5px 0 #e6e6e6;
-          box-shadow: inset 0 5px 0 #e6e6e6;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font: bold 2.5rem var(--font);
+  text-align: left;
+  gap: 30px;
+  margin: 1em 0;
+  padding: 1em .5em;
+  max-height: 800px;
+  overflow-y: auto;
 }
 
-.form__subtitle {
-  font: bold 3rem var(--font);
+#record__filter {
+  font: normal 1.75rem var(--font);
   text-align: center;
+  padding: 1em .5em;
+  margin: auto;
+  max-width: 650px;
 }
 
-.form__description {
-  font: 300 2rem var(--font);
-  text-align: center;
-}
-
-.form__select__pics {
+#record__filter--type {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -592,67 +597,120 @@ body {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin: .5em 0;
+}
+
+#record__filter--type input {
+  visibility: hidden;
+  position: absolute;
+  left: -100%;
+  top: -100%;
+}
+
+#record__filter--type label {
+  padding: .5em 1em;
+  cursor: pointer;
+  min-width: 150px;
+  -webkit-filter: grayscale(1);
+          filter: grayscale(1);
+  -webkit-transition: -webkit-filter .3s ease;
+  transition: -webkit-filter .3s ease;
+  transition: filter .3s ease;
+  transition: filter .3s ease, -webkit-filter .3s ease;
+}
+
+#record__filter--type label[for='filter-aerobic'] {
+  background-color: var(--aerobic-color);
+}
+
+#record__filter--type label[for='filter-anaerobic'] {
+  background-color: var(--anaerobic-color);
+}
+
+#record__filter--type label[for='filter-all'] {
+  background: #51d36f;
+}
+
+#record__filter--type #filter-aerobic:is(:checked, :focus, :hover) ~ label[for='filter-aerobic'],
+#record__filter--type #filter-anaerobic:is(:checked, :focus, :hover) ~ label[for='filter-anaerobic'],
+#record__filter--type #filter-all:is(:checked, :focus, :hover) ~ label[for='filter-all'] {
+  -webkit-filter: grayscale(0);
+          filter: grayscale(0);
+}
+
+#record__filter--days {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 10px;
+  margin: 1em 0;
+}
+
+#record__filter--days input {
+  max-width: 75px;
+}
+
+#record__filter__submit {
+  font: normal 2.5rem var(--font);
+  text-align: left;
+  padding: .15em 1.5em;
+}
+
+.record {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
   -webkit-box-align: stretch;
       -ms-flex-align: stretch;
           align-items: stretch;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-}
-
-.form__select__pics input[type='radio'] {
-  visibility: hidden;
-  position: absolute;
-  left: 0;
-  top: 0;
-}
-
-.form__select__pics label:hover, .form__select__pics label:focus, .form__select__pics #exercise-radio-aerobic:checked ~ label[for='exercise-radio-aerobic'],
-.form__select__pics #exercise-radio-anaerobic:checked ~ label[for='exercise-radio-anaerobic'] {
-  -webkit-filter: none;
-          filter: none;
-  border: solid 2px orange;
-}
-
-.form__select__pics label {
-  margin: 1em;
-  padding: 1em;
-  width: clamp(200px, 40%, 40%);
-  background-color: #fff;
+  width: min(650px, 100%);
+  padding: .75em;
   border-radius: 1em;
-  cursor: pointer;
-  -webkit-filter: grayscale(1);
-          filter: grayscale(1);
-  -webkit-transition: -webkit-filter .5s ease;
-  transition: -webkit-filter .5s ease;
-  transition: filter .5s ease;
-  transition: filter .5s ease, -webkit-filter .5s ease;
-}
-
-.form__select__pics img {
-  width: 100%;
-  height: auto;
-}
-
-.form__select__pics p {
-  font: normal 2.5rem var(--font);
-  text-align: center;
-}
-
-.form-group__label {
-  font: normal 2rem var(--font);
+  font: bold 2rem var(--font);
   text-align: left;
 }
 
-.form__input {
-  margin: .5em 0 2.5em 0;
-  background-color: #fff;
+.record.record--aerobic {
+  background-color: var(--aerobic-color);
+  -webkit-box-shadow: 0 5px 0 var(--aerobic-color-darker);
+          box-shadow: 0 5px 0 var(--aerobic-color-darker);
 }
 
-#exercise-description {
-  font: normal 1.75rem var(--font);
-  text-align: left;
-  padding: .5em;
-  min-height: 100px;
+.record.record--anaerobic {
+  background-color: var(--anaerobic-color);
+  -webkit-box-shadow: 0 5px 0 var(--anaerobic-color-darker);
+          box-shadow: 0 5px 0 var(--anaerobic-color-darker);
+}
+
+.record:hover {
+  -webkit-filter: brightness(0.95);
+          filter: brightness(0.95);
+}
+
+.record--val {
+  font-weight: normal;
 }
 
 #background-attribute {
@@ -662,4 +720,4 @@ body {
   left: 0px;
   bottom: 0px;
 }
-/*# sourceMappingURL=exercise.css.map */
+/*# sourceMappingURL=history.css.map */

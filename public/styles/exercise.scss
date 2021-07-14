@@ -56,7 +56,7 @@ body {
         left: 0; top: 0;
     }
 
-    #exercise-radio-aerobic:checked ~ label[for='exercise-radio-aerobic'],
+    label:hover, label:focus, #exercise-radio-aerobic:checked ~ label[for='exercise-radio-aerobic'],
     #exercise-radio-anaerobic:checked ~ label[for='exercise-radio-anaerobic'] {
         filter: none;
         border: solid 2px orange;

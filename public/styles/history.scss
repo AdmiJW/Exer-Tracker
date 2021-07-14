@@ -1,0 +1,181 @@
+
+@import "nav_footer";
+@import "balloon";
+
+body {
+    background: url('/public/img/gym.svg') no-repeat fixed center;
+    background-size: cover;
+
+    --aerobic-color: #ffa060;
+    --aerobic-color-darker: #d17b42;
+    --anaerobic-color: #aec3ff;
+    --anaerobic-color-darker: #7790d6;
+}
+
+//==========================================================================
+
+.content {
+    @include flex(column, flex-start, center);
+    gap: 50px;
+    margin: 0 20px;
+    position: relative;
+    min-height: 100vh;
+
+    padding-top: calc( var(--nav-height) + 7.5vh);
+    padding-bottom: 7.5vh;
+}
+
+.loading {
+    position: fixed;
+    display: none;
+
+    min-width: 200px;
+    background-color: #cccccc;
+    padding: 2em;
+    border-radius: 2em;
+    text-align: center;
+    box-shadow: 0 5px 20px darken(#cccccc, 55%);
+
+    img { width: 200px; height: auto; }
+    p { @include setFont(2.5rem, var(--font), bold, center); }
+
+    &.active {
+        display: initial;
+        top: 50%; left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 999;
+    }
+
+}
+
+.section {
+    width: unquote('min(100%, 800px)');
+    border-radius: 1em;
+    background: rgba( 255, 255, 255, 0.85 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    padding: 2em;
+}
+
+.section__title {
+    @include setFont(3rem, var(--font), bold, center);
+    margin: 0 0 1em 0;
+}
+
+#graph {
+    width: unquote('min(100%, 1000px)');
+
+    svg { max-width: 100%; }
+}
+
+
+// A fake bevel style for containers
+.record__container {
+    border-radius: 1em;
+    background-color: darken(#fff, 7%);
+    box-shadow: inset 0 5px 0 darken(#fff, 17%);
+}
+
+#record__summary {
+    margin: 1.5em auto;
+    padding: 1em;
+    @include setFont(2rem, var(--font), bold);
+    max-width: 650px;
+}
+
+#record__div {
+    @include flex(column, flex-start, center);
+    @include setFont(2.5rem, var(--font), bold);
+    gap: 30px;
+    margin: 1em 0;
+    padding: 1em .5em;
+
+    max-height: 800px;
+    overflow-y: auto;
+}
+
+
+#record__filter {
+    @include setFont(1.75rem, var(--font), normal, center);
+    padding: 1em .5em;
+    margin: auto;
+    max-width: 650px;
+
+    &--type {
+        @include flex(row, center, center);
+        flex-wrap: wrap;
+        margin: .5em 0;
+
+        input {
+            visibility: hidden;
+            position: absolute;
+            left: -100%; top: -100%;
+        }
+
+        label {
+            padding: .5em 1em;
+            cursor: pointer;
+            min-width: 150px;
+            filter: grayscale(1);
+            transition: filter .3s ease;
+
+            &[for='filter-aerobic'] { background-color: var(--aerobic-color); }
+            &[for='filter-anaerobic'] { background-color: var(--anaerobic-color); }
+            &[for='filter-all'] { background: #51d36f; }
+        }
+
+        #filter-aerobic:is(:checked, :focus, :hover) ~ label[for='filter-aerobic'],
+        #filter-anaerobic:is(:checked, :focus, :hover) ~ label[for='filter-anaerobic'],
+        #filter-all:is(:checked, :focus, :hover) ~ label[for='filter-all'] {
+             filter: grayscale(0); 
+        }
+        
+    }
+
+    &--days {
+        @include flex(row, center, center);
+        gap: 10px;
+        margin: 1em 0;
+
+        input { max-width: 75px; }
+    }
+
+    &__submit {
+        @include setFont(2.5rem);
+        padding: .15em 1.5em;
+    }
+}
+
+.record {
+    @include flex(column);
+    width: unquote('min(650px, 100%)');
+    padding: .75em;
+
+    border-radius: 1em;
+    @include setFont(2rem, var(--font), bold);
+
+    &.record--aerobic {
+        background-color: var(--aerobic-color);
+        box-shadow: 0 5px 0 var(--aerobic-color-darker);
+    }
+
+    &.record--anaerobic {
+        background-color: var(--anaerobic-color);
+        box-shadow: 0 5px 0 var(--anaerobic-color-darker);
+    }
+
+    &:hover {
+        filter: brightness(.95);
+    }
+}
+
+.record--val {
+    font-weight: normal;
+}
+
+// Background-attribute
+#background-attribute {
+    @include setFont(1rem);
+    position: absolute;
+    left: 0px; bottom: 0px;
+}

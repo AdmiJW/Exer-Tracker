@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <%- include('_head.ejs') %>
+
+    <!-- Style -->
+    <link rel='stylesheet' type='text/css' href='/public/styles/history.css'/>
+    <!-- HeatMap styling -->
+    <link rel='stylesheet' type='text/css' href='/public/styles/calendar-heatmap.css'/>
+
+    <!-- Script -->
+    <!-- D3.js for graph plotting, moment.js for the dependencies of Heatmap -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.10.2/d3.min.js" charset="utf-8"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js" charset="utf-8"></script>
+
+    <script src='/public/script/calendar-heatmap.js'></script>
+    <script type='module' src='/public/script/history.js' defer></script>
+</head>
+<body>
+    <!-- Balloon -->
+    <%- include("_balloon.ejs") %>
+
+    <!-- Navigation -->
+    <%- include('_nav.ejs') %>
+
+    <!-- Loading Screen Overlay -->
+    <div class='loading active'>
+        <img src='/public/img/runner.gif' alt='running lady'/>
+        <p>Loading Records...</p>
+    </div>
+
+    <!-- Content -->
+    <div class='content'>
+        <!-- Graph -->
+        <div class='section' id='graph'>
+            <h4 class='section__title' id='graph__title'>Graph</h4>
+        </div>
+
+        <!-- Records -->
+        <section class='section' id='record'>
+            <h4 class='section__title' id='record__title'>Records</h4>
+
+            <!-- Summary -->
+            <div class='record__container' id='record__summary'>
+                <p id='record__summary--sessions'>Total Sessions: <span class='record--val' id='record__summary--sessions--val'></span></p>
+                <p id='record__summary--sessions'>Total Duration: <span class='record--val' id='record__summary--duration--val'></span></p>
+                <p id='record__summary--sessions'>Aerobic Sessions: <span class='record--val' id='record__summary--aerobic--val'></span></p>
+                <p id='record__summary--sessions'>Anaerobic Sessions: <span class='record--val' id='record__summary--anaerobic--val'></span></p>
+            </div>
+
+            <hr>
+
+            <!-- Filter -->
+            <form class='record__container' id='record__filter'>
+                <div id='record__filter--type'>
+                    <input type='radio' id='filter-aerobic' name='filter_type' value='aerobic' required/>
+                    <input type='radio' id='filter-anaerobic' name='filter_type' value='anaerobic' required/>
+                    <input type='radio' id='filter-all' name='filter_type' value='all' checked required/>
+                    <label for='filter-aerobic' tabindex="0">Aerobic</label>
+                    <label for='filter-anaerobic' tabindex="0">Anaerobic</label>
+                    <label for='filter-all' tabindex="0">All</label>
+                </div>
+                <div id='record__filter--days'>
+                    <p>Past</p>
+                    <input type='number' id='filter-days' min='1' step='1' name='filter_days'/>
+                    <p>Days</p>
+                </div>
+                <button type='submit' class='btn btn-success' id='record__filter__submit'>Filter</button>
+            </form>
+            
+            <div class='record__container' id='record__div'></div>
+        </section>
+        
+        <!-- Background pic attribute -->
+        <a id='background-attribute' href='https://www.freepik.com/vectors/people' target='_blank' rel='noreferrer noopener'>People vector created by pch.vector - www.freepik.com</a>
+    </div>
+    
+    <!-- Footer -->
+    <%- include('_footer.ejs') %>
+</body>
+</html>

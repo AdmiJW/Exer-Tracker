@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 
 const recordSchema = new mongoose.Schema({
+    type: String,
     description: {
         type: String,
         required: true
