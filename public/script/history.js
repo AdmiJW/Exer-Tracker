@@ -28,6 +28,9 @@ filterForm.addEventListener('submit', (e)=> {
 (async ()=> {
     await fetchRecords();
     appendRecords(logs);
+
+    if (!logs.length)
+        return showBalloon('No record found', 'warning');
     plotGraph(logs);
 })();
 
